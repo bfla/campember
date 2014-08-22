@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Campember</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    <!--standard Bootstrap css file-->
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+
+    <!-- Javascripts that must be in the header-->
+    <!--Core of Bootstrap for Ember -->
+    <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
+    <!--Alert component -->
+    <script src="/vendor/ember-addons.bs_for_ember/dist/js/bs-alert.min.js"></script>
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/campember.css">
+  </head>
+  <body>
+    <script>
+      window.CampemberENV = {{ENV}};
+      window.EmberENV = window.CampemberENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/campember.js"></script>
+    <script>
+      window.Campember = require('campember/app')['default'].create(CampemberENV.APP);
+    </script>
+
+    <script type="text/x-handlebars">
+        {{bs-alert message="Welcome to CampEmber" type="info" dismissAfter=2 fade=true}}
+    </script>
+
+    <!--{{outlet}}-->
+  </body>
+</html>
